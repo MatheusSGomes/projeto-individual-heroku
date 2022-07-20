@@ -5,5 +5,9 @@
 <p>Nome: {{ $usuario->name }}</p>
 <p>Telefone: {{ $usuario->phone }}</p>
 <p>Email: {{ $usuario->email }}</p>
-<p>Admin: {{ $usuario->is_admin }}</p><hr>
+<p>Admin: {{ $usuario->is_admin }}</p>
+<p>
+  <a href="{{ route('user.show', $usuario->id) }}">Editar</a>
+</p>
+<hr>
 @endforeach
