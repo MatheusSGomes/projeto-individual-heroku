@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Dados do usuário') }}</div>
 
                 <div class="card-body">
-                    <form method="GET" action="{{ route('user.edit', $user->id) }}">
+                    <form method="GET" action="{{ route('users.edit', $user->id) }}">
                         @csrf
 
                         <div class="row mb-3">
