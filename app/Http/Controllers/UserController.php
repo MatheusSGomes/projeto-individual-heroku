@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\{
-    Product
-};
+use App\Models\User;
 
-class ProductController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
-        return view('products.index', compact('products'));
+        $usuarios = User::all();
+        return view('users.index', compact('usuarios'));
     }
 
     /**
@@ -27,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        //
     }
 
     /**
@@ -38,16 +36,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        $product = new Product;
-        $product->name = $request->input('name');
-        $product->description = $request->input('description');
-        $product->price = $request->input('price');
-        $product->image = $request->file('image')->store('products', 'public');
-        $product->user_id = $request->input('user_id');
-        $product->category_id = $request->input('category_id');
-        $product->save();
-
-        dd($product);
+        //
     }
 
     /**

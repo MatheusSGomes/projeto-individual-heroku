@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Cadastrar Produto') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('products.store') }}">
+                    <form method="POST" action="{{ route('products.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -57,7 +57,7 @@
                           <label for="image" class="col-md-4 col-form-label text-md-end">{{ __('Imagem do produto') }}</label>
 
                           <div class="col-md-6">
-                              <input id="image" type="text" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
+                              <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
 
                               @error('image')
                                   <span class="invalid-feedback" role="alert">

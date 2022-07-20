@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
     HomeController,
     CategoryController,
-    ProductController
+    ProductController,
+    UserController
 };
 
 Route::get('/', function () {
@@ -19,6 +20,9 @@ Route::post('/categoria', [CategoryController::class, 'store'])->name('categorie
 Route::get('/produtos', [ProductController::class, 'index'])->name('products.index');
 Route::get('/produtos/novo', [ProductController::class, 'create'])->name('products.create');
 Route::post('/produto', [ProductController::class, 'store'])->name('products.store');
+
+
+Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
 
 Auth::routes();
 

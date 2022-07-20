@@ -3,7 +3,7 @@
   Nome: {{ $p->name }} <br>
   Descrição: {{ $p->description }} <br>
   Preço: {{ $p->price }} <br>
-  Imagem: {{ $p->image }} <br>
+  Imagem:  <img src="{{ "storage/". $p->image }}" width="200px"> <br>
   ID Usuário: {{ $p->user_id }} <br>
   ID Categoria: {{ $p->category_id }} <br><hr>
 @endforeach
