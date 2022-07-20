@@ -5,12 +5,11 @@ use App\Http\Controllers\{
     HomeController,
     CategoryController,
     ProductController,
-    UserController
+    UserController,
+    IndexController
 };
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [IndexController::class, 'index'])->name('index');
 
 Route::get('/categorias', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categorias/novo', [CategoryController::class, 'create'])->name('categories.create');
