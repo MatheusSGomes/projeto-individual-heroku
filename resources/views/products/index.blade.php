@@ -7,5 +7,10 @@
   ID Usuário: {{ $p->user_id }} <br>
   ID Categoria: {{ $p->category_id }} <br>
   <a href="{{ route('products.show', $p->id) }}">Visualizar</a>
+  <form method="POST" action="{{ route('products.destroy', $p->id) }}">
+    @csrf
+    @method('DELETE')
+    <button type="submit">Apagar</button>
+  </form>
   <hr>
 @endforeach

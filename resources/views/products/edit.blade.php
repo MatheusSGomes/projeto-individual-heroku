@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Cadastrar Produto') }}</div>
+                <div class="card-header">{{ __('Editar Produto') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
@@ -99,8 +99,14 @@
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Cadastrar') }}
+                                    {{ __('Editar') }}
                                 </button>
+
+                                <form method="POST" action="{{ route('products.destroy', $product->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">Apagar</button>
+                                </form>
                             </div>
                         </div>
                     </form>

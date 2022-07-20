@@ -90,7 +90,7 @@ class ProductController extends Controller
         
         if($request->image)
             $product->image = $request->file('image')->store('products', 'public');
-            
+
         $product->category_id = $request->input('category_id');
         $product->save();
         return redirect()->route('products.index');
@@ -104,6 +104,8 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }
