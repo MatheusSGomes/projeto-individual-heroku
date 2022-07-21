@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\{
-    HomeController,
+    DashboardController,
     CategoryController,
     ProductController,
     UserController,
@@ -30,6 +30,8 @@ Route::delete('/produto/{id}', [ProductController::class, 'destroy'])->name('pro
 
 
 Route::get('/usuarios', [UserController::class, 'index'])->name('users.index');
+Route::get('/usuarios/novo', [UserController::class, 'create'])->name('users.create');
+Route::post('/usuario', [UserController::class, 'store'])->name('users.store');
 Route::get('/usuario/{id}', [UserController::class, 'show'])->name('users.show');;
 Route::get('/usuario/{id}/editar', [UserController::class, 'edit'])->name('users.edit');
 Route::put('/usuario/{id}', [UserController::class, 'update'])->name('users.update');
@@ -37,4 +39,4 @@ Route::delete('/usuario/{id}', [UserController::class, 'destroy'])->name('users.
 
 Auth::routes();
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');

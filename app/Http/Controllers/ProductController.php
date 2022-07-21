@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\{
-    Product
+    Product,
+    Category
 };
 
 class ProductController extends Controller
@@ -16,7 +18,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::with('user')->get();
         return view('products.index', compact('products'));
     }
 
@@ -27,7 +29,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Category::all();
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -43,11 +46,13 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = $request->input('price');
         $product->image = $request->file('image')->store('products', 'public');
-        $product->user_id = $request->input('user_id');
+        $product->user_id = Auth::id();
         $product->category_id = $request->input('category_id');
         $product->save();
 
-        dd($product);
+        if(Auth::user()) 
+            return redirect()->route('dashboard');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -71,7 +76,8 @@ class ProductController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('products.edit', compact('product'));
+        $categories = Category::all();
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**
@@ -93,6 +99,9 @@ class ProductController extends Controller
 
         $product->category_id = $request->input('category_id');
         $product->save();
+        
+        if(Auth::user()) 
+            return redirect()->route('dashboard');
         return redirect()->route('products.index');
     }
 
@@ -106,6 +115,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        if(Auth::user()) 
+            return redirect()->route('dashboard');
+
         return redirect()->route('products.index');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -39,7 +40,9 @@ class CategoryController extends Controller
         $category = new Category;
         $category->name = $request->input('name');
         $category->save();
-        dd($category);
+        if(Auth::user())
+            return redirect()->route('dashboard');
+        return redirect()->route('categories.index'); 
     }
 
     /**
@@ -78,6 +81,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->name = $request->input('name');
         $category->save();
+        if(Auth::user())
+            return redirect()->route('dashboard');
         return redirect()->route('categories.index');
     }
 
@@ -91,6 +96,8 @@ class CategoryController extends Controller
     {
         $product = Category::find($id);
         $product->delete();
+        if(Auth::user())
+            return redirect()->route('dashboard');
         return redirect()->route('categories.index');
     }
 }

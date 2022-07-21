@@ -81,7 +81,7 @@
                           </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="row mb-2">
                           <label for="category_id" class="col-md-4 col-form-label text-md-end">{{ __('Categoria do produto') }}</label>
 
                           <div class="col-md-6">
@@ -93,19 +93,20 @@
                                   </span>
                               @enderror
                           </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Editar') }}
-                                </button>
-                            </div>
-                        </div>
+                        </div>                        
                     </form>
+                </div>
+
+                <div class="card-footer">
+                    <div class="row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Editar produto</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

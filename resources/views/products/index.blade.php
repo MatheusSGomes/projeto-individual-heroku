@@ -6,6 +6,7 @@
   Imagem:  <img src="{{ "storage/". $p->image }}" width="200px"> <br>
   ID Usuário: {{ $p->user_id }} <br>
   ID Categoria: {{ $p->category_id }} <br>
+  Vendedor: {{ $p->user->name }} <br>
   <a href="{{ route('products.show', $p->id) }}">Visualizar</a>
   <form method="POST" action="{{ route('products.destroy', $p->id) }}">
     @csrf

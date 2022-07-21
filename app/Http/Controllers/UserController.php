@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -14,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $usuarios = User::all();
+        $usuarios = User::with('products')->get();
         return view('users.index', compact('usuarios'));
     }
 
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -36,7 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $user = new User;
+        $user->name = $request->input('name');
+        $user->phone = $request->input('phone');
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->save();
+        if(Auth::user())
+            return redirect()->route('dashboard');
+        return redirect()->route('users.index');
     }
 
     /**
@@ -76,11 +85,12 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
-
+        $user->is_admin = $request->input('is_admin');
         if($request->password)
-            $user->password = $request->input('password');
-
+            $user->password = bcrypt($request->input('password'));
         $user->save();
+        if(Auth::user())
+            return redirect()->route('dashboard');
         return redirect()->route('users.index');
     }
 
