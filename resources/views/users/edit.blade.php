@@ -5,9 +5,34 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Editar usuário') }}</div>
+                <div class="card-header">Editar usuário</div>
 
                 <div class="card-body">
+                    
+                    <div class="row text-center">
+                        <div class="col mb-4 mt-2">
+                            <img class="rounded-circle" alt="100x100" width="100px" src="https://mdbootstrap.com/img/Photos/Avatars/img%20(30).jpg" data-holder-rendered="true">
+                        </div>
+                    </div>
+
+                    <div class="row text-center">
+                        <div class="col mb-3">
+                            @if(Auth::user()->is_admin == 1)
+                                <input 
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    value="1"
+                                    name="is_admin"
+                                    id="flexCheckDefault"
+                                    @if($user->is_admin == 1)
+                                        checked
+                                    @endif
+                                />
+                                <label class="form-check-label" for="flexCheckDefault">Admin</label>
+                            @endif
+                        </div>
+                    </div>
+
                     <form method="POST" action="{{ route('users.update', $user->id) }}">
                         @csrf
                         @method('PUT')
@@ -75,22 +100,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" autocomplete="new-password">
                             </div>
                         </div>
-
-                        @if(Auth::user()->is_admin == 1)
-                        <div class="form-check mb-3">
-                            <input 
-                                class="form-check-input"
-                                type="checkbox"
-                                value="1"
-                                name="is_admin"
-                                id="flexCheckDefault"
-                                @if($user->is_admin == 1)
-                                    checked
-                                @endif
-                            />
-                            <label class="form-check-label" for="flexCheckDefault">Admin</label>
-                        </div>
-                        @endif
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
