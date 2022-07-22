@@ -1,5 +1,5 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-
+<link rel="stylesheet" href="css/style.css">
 
 @foreach($categories as $category)
   <p>{{ $category->name }} ({{ count($category->products) }})</p>
@@ -63,7 +63,7 @@
 
     <div class="col">
       <div class="card text-bg-dark">
-        <a href="#">
+        <a href="#" class="card-product">
           <img src="https://vangogh.teespring.com/v3/image/-OpCH5guL7iRy6xu4D7E7xWz9K8/480/560.jpg" class="card-img" alt="...">
           
           <div class="card-img-overlay">
@@ -92,9 +92,3 @@
 </div>
 
 <div class="container mt-5"></div>
-
-
-<div class="d-flex align-items-start flex-column" style="height: 200px;">
-  <div class="mb-auto p-2">Flex item</div>
-  <div class="p-2">Flex item</div>
-</div>
