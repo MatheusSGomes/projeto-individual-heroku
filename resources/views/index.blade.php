@@ -18,77 +18,131 @@
   <p>Conteúdo apenas para visitantes</p>    
 @endguest
 
+{{-- CATEGORIAS --}}
 <div class="container">
-  <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
-      <div class="card h-100">
-        <img src="https://vangogh.teespring.com/v3/image/-OpCH5guL7iRy6xu4D7E7xWz9K8/480/560.jpg" class="card-img-top" alt="...">
+  <p class="h2">Categorias</p>
+  <hr class="mb-5">  
 
-        <div class="card-body">
-          <div class="d-flex justify-content-between">
-            <div class="mr-auto p-2">
-              <h5 class="card-title"><p>R$ 197,89</p></h5>
-              <p class="card-text">Nome produto</p>
-            </div>
-  
-            <div class="p-2">
-              <a href="#" class="btn btn-success btn-sm">Ver produto</a>
+  <div class="d-flex justify-content-around">
+    @foreach($categories as $category)
+      <a href="#" class="categoria-link">
+        <div class="categoria">
+          <img class="rounded-circle mb-2" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="90" height="90">
+          <p class="text-center">{{$category->name}}</p>
+        </div>
+      </a>
+    @endforeach
+  </div>
+</div>
+
+
+{{-- TODOS OS PRODUTOS --}}
+<div class="container">
+  <p class="h2">Todos os produtos</p>
+  <hr class="mb-5">
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    @foreach($products as $product)
+      <div class="col">
+        <div class="card">
+          <img 
+            src="{{ "http://127.0.0.1:8000/storage/".$product->image }}"
+            class="card-img-top" 
+            alt="{{ $product->name }}"
+          />
+
+          <div class="card-body">
+            <div class="d-flex justify-content-between">
+              <div class="mr-auto p-2">
+                <h4 class="card-title">R$ {{ $product->price }}</h4>
+                <p class="card-text">{{ $product->name }}</p>
+              </div>
+    
+              <div class="p-2">
+                <a href="{{ route('products.show', $product->id) }}" class="btn btn-primary btn-sm">Ver produto</a>
+              </div>
             </div>
           </div>
+    
+          <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+          </div>
         </div>
+      </div>
+    @endforeach
+  </div>
 
-        <div class="card-footer">
-          <small class="text-muted">Last updated 3 mins ago</small>
+
+</div>
+
+
+{{-- <div class="row row-cols-1 row-cols-md-3 g-4">
+  <div class="col">
+    <div class="card h-100">
+      <img src="https://vangogh.teespring.com/v3/image/-OpCH5guL7iRy6xu4D7E7xWz9K8/480/560.jpg" class="card-img-top" alt="...">
+
+      <div class="card-body">
+        <div class="d-flex justify-content-between">
+          <div class="mr-auto p-2">
+            <h5 class="card-title"><p>R$ 197,89</p></h5>
+            <p class="card-text">Nome produto</p>
+          </div>
+
+          <div class="p-2">
+            <a href="#" class="btn btn-success btn-sm">Ver produto</a>
+          </div>
         </div>
+      </div>
+
+      <div class="card-footer">
+        <small class="text-muted">Last updated 3 mins ago</small>
       </div>
     </div>
-
   </div>
-</div>
+</div> --}}
+
 
 <div class="container mt-5"></div>
 
-<div class="container">
+{{-- <div class="container">
   <div class="row row-cols-1 row-cols-md-3 g-4">
     <div class="col">
-      <div class="card text-bg-dark">
-        <img src="https://s2.glbimg.com/yD_u7JKxxZGps-xKcBRHJrvBK6Q=/0x0:1600x900/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_08fbf48bc0524877943fe86e43087e7a/internal_photos/bs/2019/b/0/9oNBpeQ7iVRnWzmVUzWw/brecho-online-como-vender-coisas-usadas.jpg" class="card-img" alt="...">
-        
-        <div class="card-img-overlay">
-          <h5 class="card-title"><span class="badge rounded-pill bg-primary">R$ 85,56</span></h5>
-          <p class="card-text"><span class="badge rounded-pill text-bg-dark">Last updated 3 mins ago</span></p>
-        </div>
-      </div>
-    </div><!-- end card -->
+      <div class="card text-bg-white box-card-img-config card-product">
 
-    <div class="col">
-      <div class="card text-bg-dark">
-        <a href="#" class="card-product">
-          <img src="https://vangogh.teespring.com/v3/image/-OpCH5guL7iRy6xu4D7E7xWz9K8/480/560.jpg" class="card-img" alt="...">
-          
-          <div class="card-img-overlay">
-            <div class="d-flex align-items-start flex-column" style="height: 330px;">
-              
-              <div class="mb-auto">
-                <h4 class="card-title">
-                  <span class="badge rounded-pill bg-primary">R$ 85,56</span>
-                </h4>
-              </div>
-              <div class="p-2">
-                <p class="card-text">
-                  <span class="badge rounded-pill text-bg-dark">Last updated 3 mins ago</span>
-                </p>
-              </div>
-  
+        <img src="http://127.0.0.1:8000/storage/products/ZuEQ9RrvB11sx2Eo41bRftn8ay4IEHr3Xrt1LfQU.jpg" class="card-img card-img-config" alt="...">
+        
+        <div class="card-img-overlay p-1">
+          <div class="d-flex justify-content-between" style="height: 290px;"> 
+            <div class="mb-auto p-2">
+              <h4 class="card-title">
+                <span class="badge rounded-pill bg-primary">R$ 85,56</span>
+              </h4>
+              <span class="badge rounded-pill text-bg-dark" style="opacity: 0.6;">3 dias atrás</span>
+            </div>
+            <div class="p-2">
+              <p class="card-text">
+                <span class="badge rounded-pill text-bg-secondary">Usado</span>
+              </p>
             </div>
           </div>
-        </a>
+        </div><!-- card overlay -->
+
+        <div class="card-body">
+          <div class="d-flex justify-content-between"> 
+            <div class="mb-auto p-2">
+              <a>Nome produto</a>
+            </div>
+            <div class="p-2">
+              <a href="#" class="btn btn-sm btn-primary">Comprar</a>
+            </div>
+          </div>
+        </div>
 
       </div>
     </div><!-- end card -->
-
-
+    
   </div>
-</div>
+</div> --}}
 
 <div class="container mt-5"></div>
+

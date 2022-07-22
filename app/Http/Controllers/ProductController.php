@@ -63,8 +63,13 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
+        $product = Product::with(['user', 'category'])
+            ->where('id', $id)
+            ->get()
+            ->first();
+        
         return view('products.show', compact('product'));
+        // return $product->toJson();
     }
 
     /**

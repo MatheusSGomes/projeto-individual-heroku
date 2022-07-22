@@ -57,6 +57,12 @@ class CategoryController extends Controller
         return view('categories.show', compact('category'));
     }
 
+    public function showproducts($id)
+    {
+        $category = Category::find($id);
+        return view('categories.show', compact('category'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

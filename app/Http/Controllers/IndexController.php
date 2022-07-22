@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Product;
 
 class IndexController extends Controller
 {
@@ -15,7 +16,8 @@ class IndexController extends Controller
     public function index()
     {
         $categories = Category::with('products')->get();
-        return view('index', compact('categories'));
+        $products = Product::all();
+        return view('index', compact('categories', 'products'));
         // return $categories->toJson();
     }
 
