@@ -1,14 +1,6 @@
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
-<link rel="stylesheet" href="css/style.css">
-
-@foreach($categories as $category)
-  <p>{{ $category->name }} ({{ count($category->products) }})</p>
-  <ul>
-    @foreach($category->products as $product)
-      <li>{{$product->name}}</li>
-    @endforeach
-  </ul>
-@endforeach
+{{-- <link rel="stylesheet" href="css/style.css"> --}}
+@extends('layouts.app')
+@section('content')
 
 @auth
   <p>Conteúdo para quem está logado</p>
@@ -18,17 +10,18 @@
   <p>Conteúdo apenas para visitantes</p>    
 @endguest
 
+
 {{-- CATEGORIAS --}}
 <div class="container">
   <p class="h2">Categorias</p>
   <hr class="mb-5">  
 
-  <div class="d-flex justify-content-around">
+  <div class="d-flex justify-content-around mb-5">
     @foreach($categories as $category)
-      <a href="#" class="categoria-link">
+      <a href="{{ route('categories.showproducts', $category->id) }}" class="categoria-link">
         <div class="categoria">
           <img class="rounded-circle mb-2" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="90" height="90">
-          <p class="text-center">{{$category->name}}</p>
+          <p class="text-center">{{$category->name}} ({{ count($category->products) }})</p>
         </div>
       </a>
     @endforeach
@@ -146,3 +139,5 @@
 
 <div class="container mt-5"></div>
 
+
+@endsection
