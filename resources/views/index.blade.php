@@ -1,4 +1,12 @@
-{{-- <link rel="stylesheet" href="css/style.css"> --}}
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+
+
+<p>Inspiração: https://getbootstrap.com.br/docs/4.1/examples/blog/</p>
+
 @extends('layouts.app')
 @section('content')
 
@@ -13,7 +21,10 @@
 
 {{-- CATEGORIAS --}}
 <div class="container">
-  <p class="h2">Categorias</p>
+  <h1 class="display-4 font-italic h1-classificados text-center mb-5 mt-5">Classificados</h1>
+
+
+  <h2>Categorias</h2>
   <hr class="mb-5">  
 
   <div class="d-flex justify-content-around mb-5">
@@ -26,12 +37,13 @@
       </a>
     @endforeach
   </div>
+  
 </div>
 
 
 {{-- TODOS OS PRODUTOS --}}
 <div class="container">
-  <p class="h2">Todos os produtos</p>
+  <h2>Todos os produtos</h2>
   <hr class="mb-5">
 
   <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -47,7 +59,7 @@
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <div class="mr-auto p-2">
-                <h4 class="card-title">R$ {{ $product->price }}</h4>
+                <p class="card-title h4">R$ {{ $product->price }}</h4>
                 <p class="card-text">{{ $product->name }}</p>
               </div>
     
