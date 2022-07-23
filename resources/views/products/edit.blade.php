@@ -19,7 +19,6 @@
                                 <div class="card text-bg-light">
                                     <img src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" class="card-img" alt="...">
                                 </div>
-                                {{-- <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $product->image }}" readonly disabled autocomplete="image" autofocus> --}}
     
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">
