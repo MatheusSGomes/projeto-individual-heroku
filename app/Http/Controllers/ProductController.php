@@ -45,7 +45,7 @@ class ProductController extends Controller
         $product = new Product;
         $product->name = $request->input('name');
         $product->description = $request->input('description');
-        $product->price = $request->input('price');
+        $product->price = handleMoney($request->input('price'));
         $product->image = $request->file('image')->store('products', 'public');
         $product->user_id = Auth::id();
         $product->category_id = $request->input('category_id');
