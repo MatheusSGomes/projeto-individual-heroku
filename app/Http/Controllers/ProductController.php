@@ -98,7 +98,7 @@ class ProductController extends Controller
         $product = Product::find($id);
         $product->name = $request->input('name');
         $product->description = $request->input('description');
-        $product->price = $request->input('price');
+        $product->price = handleMoney($request->input('price'));
 
         if($request->image)
             $product->image = $request->file('image')->store('products', 'public');
