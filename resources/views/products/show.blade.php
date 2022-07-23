@@ -118,7 +118,7 @@
                 </div>
 
                 @auth
-                    @if(Auth::user()->id == $product->user->id)
+                    @if(Auth::user()->id == $product->user->id || Auth::user()->is_admin == 1)
                         <div class="card-footer">
                             <div class="row mb-0">
                                 <div class="col-md-6 offset-md-4">

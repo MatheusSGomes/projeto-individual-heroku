@@ -2,18 +2,18 @@
 
 @extends('layouts.app')
 @section('content')
-
-@auth
-  <p>Conteúdo para quem está logado</p>
-@endauth
-
-@guest
-  <p>Conteúdo apenas para visitantes</p>    
-@endguest
-
-
-{{-- CATEGORIAS --}}
 <div class="container">
+
+  @auth
+    <p>Conteúdo para quem está logado</p>
+  @endauth
+
+  @guest
+    <p>Conteúdo apenas para visitantes</p>    
+  @endguest
+
+
+  {{-- CATEGORIAS --}}
   <h1 class="display-4 font-italic h1-classificados text-center mb-5 mt-5">Classificados</h1>
 
 
@@ -24,18 +24,26 @@
     @foreach($categories as $category)
       <a href="{{ route('categories.showproducts', $category->id) }}" class="categoria-link">
         <div class="categoria">
-          <img class="rounded-circle mb-2" src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Generic placeholder image" width="90" height="90">
+          <img
+            class="rounded-circle mb-2" 
+            alt="Generic placeholder image" 
+            width="85" 
+            height="85"
+            @if($category->image) 
+              src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
+            @else 
+              src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" 
+            @endif
+          />
           <p class="text-center">{{$category->name}} ({{ count($category->products) }})</p>
         </div>
       </a>
     @endforeach
+
   </div>
   
-</div>
+  {{-- TODOS OS PRODUTOS --}}
 
-
-{{-- TODOS OS PRODUTOS --}}
-<div class="container">
   <h2>Todos os produtos</h2>
   <hr class="mb-5">
 
@@ -70,6 +78,9 @@
     @endforeach
   </div>
 
+  <div class="mt-5">
+    {{ $products->links('pagination::bootstrap-5') }}
+  </div>
 
 </div>
 

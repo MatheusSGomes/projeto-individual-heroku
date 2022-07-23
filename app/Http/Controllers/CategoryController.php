@@ -39,6 +39,8 @@ class CategoryController extends Controller
     {
         $category = new Category;
         $category->name = $request->input('name');
+        if($request->image)
+            $category->image = $request->file('image')->store('categories', 'public');
         $category->save();
         if(Auth::user())
             return redirect()->route('dashboard');

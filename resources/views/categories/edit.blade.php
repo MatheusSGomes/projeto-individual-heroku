@@ -5,12 +5,27 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Editar Categoria') }}</div>
+                <div class="card-header text-center">Editar Categoria</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('categories.update', $category->id) }}">
                         @csrf
                         @method('PUT')
+
+                        <div class="row mb-3">
+                            <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do produto</label>
+    
+                            <div class="col-md-6">
+                                <div class="card text-bg-light">
+                                    <img src="{{ "http://127.0.0.1:8000/storage/".$category->image }}" class="card-img" alt="...">
+                                </div>    
+                                @error('image')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nome da categoria') }}</label>

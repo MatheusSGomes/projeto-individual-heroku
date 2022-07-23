@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Cadastrar usuário') }}</div>
+                <div class="card-header text-center">Cadastrar usuário</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('users.store') }}">
@@ -75,12 +75,14 @@
                             </div>
                         </div>
 
-                        @if(Auth::user()->is_admin == 1)
-                        <div class="form-check mb-3">
-                            <label class="form-check-label" for="flexCheckDefault">Admin</label>
-                            <input class="form-check-input" type="checkbox" value="1" name="is_admin" id="flexCheckDefault">
-                        </div>
-                        @endif
+                        @auth
+                            @if(Auth::user()->is_admin == 1)
+                            <div class="form-check mb-3">
+                                <label class="form-check-label" for="flexCheckDefault">Admin</label>
+                                <input class="form-check-input" type="checkbox" value="1" name="is_admin" id="flexCheckDefault">
+                            </div>
+                            @endif
+                        @endauth
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

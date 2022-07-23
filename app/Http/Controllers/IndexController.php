@@ -16,9 +16,8 @@ class IndexController extends Controller
     public function index()
     {
         $categories = Category::with('products')->get();
-        $products = Product::all();
+        $products = Product::paginate(3);
         return view('index', compact('categories', 'products'));
-        // return $categories->toJson();
     }
 
     /**

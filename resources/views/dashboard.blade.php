@@ -37,7 +37,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Produtos anunciados</div>
+                <div class="card-header">Seus anuncios</div>
 
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
@@ -133,5 +133,36 @@
         </div>
     </div>
     @endif
+
+    @if(Auth::user()->is_admin == 1)
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Gerenciar todos os produtos cadastrados</div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush">
+                        @foreach($allProducts as $p)
+                        <div class="d-flex list-group-item">
+                            <div class="me-auto p-2">{{ $p->name }}</div>
+                            <div class="p-2">
+                                <a class="btn btn-sm btn-primary" href="{{ route('products.show', $p->id) }}">Visualizar</a>
+                            </div>
+                            <div class="p-2">
+                                <form method="POST" action="{{ route('products.destroy', $p->id) }}">
+                                    @csrf
+                                    @method("DELETE")
+                                    <input class="btn btn-sm btn-danger" type="submit" value="Apagar">
+                                </form>
+                            </div>
+                        </div>
+                        @endforeach
+                    </ul>
+                </div>
+                <div class="card-footer"></div>
+            </div>
+        </div>
+    </div>
+    @endif
+
 </div>
 @endsection

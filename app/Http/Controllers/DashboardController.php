@@ -21,8 +21,9 @@ class DashboardController extends Controller
     {
         $users = User::all();
         $user = Auth::user();
+        $allProducts = Product::all();
         $products = Product::where('user_id', $user->id)->get();
         $categories = Category::all();
-        return view('dashboard', compact('users', 'products', 'categories'));
+        return view('dashboard', compact('users', 'products', 'categories', 'allProducts'));
     }
 }
