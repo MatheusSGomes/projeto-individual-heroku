@@ -9,14 +9,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Detalhes do  {{ $product->name }}</div>
+                <div class="card-header text-center">Detalhes do  {{ $product->name }}</div>
 
                 <div class="card-body">
                     <div class="row mb-3">
                         <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do produto</label>
 
                         <div class="col-md-6">
-                            <div class="card text-bg-dark">
+                            <div class="card text-bg-light">
                                 <img src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" class="card-img" alt="...">
                             </div>
                             {{-- <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $product->image }}" readonly disabled autocomplete="image" autofocus> --}}
@@ -27,9 +27,7 @@
                                 </span>
                             @enderror
                         </div>
-                    </div>
-
-                    
+                    </div>    
 
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">Nome do produto</label>
@@ -119,17 +117,23 @@
                     </div>
                 </div>
 
-                <div class="card-footer">
-                    <div class="row mb-0">
-                        <div class="col-md-6 offset-md-4">
-                            <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Editar produto</a>
+                @auth
+                    @if(Auth::user()->id == $product->user->id)
+                        <div class="card-footer">
+                            <div class="row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <a href="{{ route('products.edit', $product->id) }}" class="btn btn-primary">Editar produto</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                    @endif
+                @endauth
 
             </div>
         </div>
     </div>
+
+    
 </div>
 
 @endsection
