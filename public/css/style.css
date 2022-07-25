@@ -31,6 +31,23 @@ p {
   font-family: "Open Sans", sans-serif;
 }
 
+/* PROFILE */
+
+.box-img-profile {
+  width: 130px;
+  height: 130px;
+  border: 1px solid #ccc;
+  padding: 4px;
+  border-radius: 50%;
+}
+
+.img-profile {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* CARDS TESTE */
 .box-card-img-config {
   width: 100%;

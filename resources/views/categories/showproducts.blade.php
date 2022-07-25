@@ -1,10 +1,9 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
-
-
-  
-<h1>Listar produtos da categoria</h1>
+ 
+<h2>Produtos da categoria: {{ $category->name }}</h2>
+<hr class="mb-5">  
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
   @foreach($category->products as $product)

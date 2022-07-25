@@ -11,6 +11,17 @@
                     <form method="POST" action="{{ route('users.store') }}" enctype="multipart/form-data">
                         @csrf
 
+                        <div class="row text-center">
+                            <div class="col mb-3">
+                                @auth
+                                    @if(Auth::user()->is_admin == 1)
+                                        <input class="form-check-input" type="checkbox" value="1" name="is_admin" id="flexCheckDefault">
+                                        <label class="form-check-label" for="flexCheckDefault">Admin</label>
+                                    @endif
+                                @endauth
+                            </div>
+                        </div>
+                        
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">Nome</label>
 
@@ -88,15 +99,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
                             </div>
                         </div>
-
-                        @auth
-                            @if(Auth::user()->is_admin == 1)
-                            <div class="form-check mb-3">
-                                <label class="form-check-label" for="flexCheckDefault">Admin</label>
-                                <input class="form-check-input" type="checkbox" value="1" name="is_admin" id="flexCheckDefault">
-                            </div>
-                            @endif
-                        @endauth
 
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">

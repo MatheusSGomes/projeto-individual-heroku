@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -10,23 +10,24 @@
                 <div class="card-body">
                     
                     <div class="row text-center">
-                        <div class="col mb-4 mt-2">
-                            <img 
-                                class="rounded-circle"
-                                alt="100x100" 
-                                width="100px" 
-                                @if($user->photo)
-                                    src="{{ "http://127.0.0.1:8000/storage/".$user->photo }}" 
-                                @else
-                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
-                                @endif
-                                data-holder-rendered="true"
-                            />
+                        <div class="d-flex justify-content-center mt-3 mb-3">
+                            <div class="box-img-profile">
+                                <img 
+                                    class="img-profile"
+    
+                                    @if($user->photo)
+                                        src="{{ "http://127.0.0.1:8000/storage/".$user->photo }}" 
+                                    @else
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                    @endif
+                                    data-holder-rendered="true"
+                                />
+                            </div>
                         </div>
                     </div>
 
                     
-                    <form method="POST" action="{{ route('users.update', $user->id) }}">
+                    <form method="POST" action="{{ route('users.update', $user->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         
@@ -93,12 +94,12 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">Foto de perfil</label>
+                            <label for="photo" class="col-md-4 col-form-label text-md-end">Foto de perfil</label>
   
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" autocomplete="image" autofocus>
+                                <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" autocomplete="photo" autofocus>
   
-                                @error('image')
+                                @error('photo')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
