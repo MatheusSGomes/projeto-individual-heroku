@@ -14,6 +14,7 @@ return new class extends Migration
             $table->string('description');
             $table->double('price');
             $table->string('image');
+            $table->integer('views')->default(0);
 
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');

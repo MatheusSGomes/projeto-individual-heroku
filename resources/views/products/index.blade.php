@@ -16,6 +16,7 @@
                         <th class="text-center" scope="col">Nome</th>
                         <th class="text-center" scope="col">Descrição</th>
                         <th class="text-center" scope="col">Preço</th>
+                        <th class="text-center" scope="col">Visitas</th>
                         <th class="text-center" scope="col">Vendedor</th>
                         <th class="text-center" scope="col">Categoria</th>
                         <th class="text-center" scope="col">...</th>
@@ -28,6 +29,7 @@
                         <td class="text-center">{{ $p->name }}</td>
                         <td class="text-center">{{ $p->description }}</td>
                         <td class="text-center">{{ formatMoney($p->price) }}</td>
+                        <td class="text-center">{{ $p->views }}</td>
                         <td class="text-center">{{ $p->user->name }}</td>
                         <td class="text-center">{{ $p->category->name }}</td>
                         <td class="text-center">

@@ -68,9 +68,11 @@ class ProductController extends Controller
             ->where('id', $id)
             ->get()
             ->first();
-        
+
+        $product->views += 1;
+        $product->save();
+
         return view('products.show', compact('product'));
-        // return $product->toJson();
     }
 
     /**
