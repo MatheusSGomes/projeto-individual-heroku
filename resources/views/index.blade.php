@@ -15,6 +15,16 @@
   {{-- CATEGORIAS --}}
   <h1 class="display-4 font-italic h1-classificados text-center mb-5 mt-5">Classificados</h1>
 
+  <div class="d-flex justify-content-around mb-4">
+    <form action="{{ route('index.search') }}" method="get">
+      <div class="input-group">
+        <input type="search" class="form-control" placeholder="Ex: iPhone 13..." aria-describedby="basic-addon2" name="search">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" type="submit">Buscar</button>
+        </div>
+      </div>
+    </form>
+  </div>
 
   <h2>Categorias</h2>
   <hr class="mb-5">  

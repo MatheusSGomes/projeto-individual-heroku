@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dados do usuário</div>
+                <div class="card-header text-center">Dados do usuário</div>
 
                 <div class="card-body">
                     <form method="GET" action="{{ route('users.edit', $user->id) }}">

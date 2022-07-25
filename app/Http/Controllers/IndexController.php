@@ -3,11 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\{
+    Category,
+    Product
+};
 
 class IndexController extends Controller
 {
+    public function __construct(Product $products)
+    {
+        $this->model = $products;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -18,6 +24,13 @@ class IndexController extends Controller
         $categories = Category::with('products')->get();
         $products = Product::paginate(3);
         return view('index', compact('categories', 'products'));
+    }
+
+    public function search(Request $request)
+    {
+        $products = $this->model->getProducts($request->search ?? '');
+        $search = $request->search;
+        return view('search', compact('products', 'search'));
     }
 
     /**

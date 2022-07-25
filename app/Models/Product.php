@@ -9,6 +9,18 @@ class Product extends Model
 {
     use HasFactory;
 
+    public function getProducts(String $search = null)
+    {
+        $products = $this->where(function($query) use ($search) {
+            if($search) {
+                $query->where('name', 'LIKE', "%{$search}%");
+            }
+        })->paginate(9);
+
+
+        return $products;
+    }
+
     public function user()
     {
         return $this->belongsTo('App\Models\User', 'user_id', 'id');

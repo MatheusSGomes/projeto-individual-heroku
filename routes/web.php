@@ -10,6 +10,7 @@ use App\Http\Controllers\{
 };
 
 Route::get('/', [IndexController::class, 'index'])->name('index');
+Route::get('/encontrar', [IndexController::class, 'search'])->name('index.search');
 
 Route::get('/categorias', [CategoryController::class, 'index'])->name('categories.index');
 Route::get('/categorias/novo', [CategoryController::class, 'create'])->name('categories.create');
