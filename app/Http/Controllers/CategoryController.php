@@ -88,6 +88,8 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->name = $request->input('name');
+        if($request->image)
+            $category->image = $request->file('image')->store('categories', 'public');
         $category->save();
         if(Auth::user())
             return redirect()->route('dashboard');
@@ -102,8 +104,10 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        $product = Category::find($id);
-        $product->delete();
+        $category = Category::find($id);
+        $category->delete();
+        if($category->image)
+            unlink(public_path('storage/'.$category->image));
         if(Auth::user())
             return redirect()->route('dashboard');
         return redirect()->route('categories.index');

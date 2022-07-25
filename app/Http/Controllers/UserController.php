@@ -41,6 +41,8 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
+        if($request->photo)
+            $user->photo = $request->file('photo')->store('profile', 'public');
         $user->password = $request->input('password');
         $user->save();
         if(Auth::user())

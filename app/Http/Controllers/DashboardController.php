@@ -19,11 +19,11 @@ class DashboardController extends Controller
 
     public function index()
     {
-        $users = User::all();
+        $users = User::paginate(5);
         $user = Auth::user();
-        $allProducts = Product::all();
         $products = Product::where('user_id', $user->id)->get();
-        $categories = Category::all();
+        $categories = Category::paginate(5)->withPath('/categorias');
+        $allProducts = Product::paginate(5);
         return view('dashboard', compact('users', 'products', 'categories', 'allProducts'));
     }
 }

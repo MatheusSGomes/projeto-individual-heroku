@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -55,8 +56,6 @@
                                     </a>
                                 </div>
                             </div>
-                          
-                            {{-- <li class="list-group-item">{{ $p->name }}</li> --}}
                         @endforeach
                       </ul>                    
                 </div>
@@ -69,7 +68,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Usuários cadastrados</div>
+                <div class="card-header">Últimos usuários cadastrados</div>
 
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
@@ -92,7 +91,10 @@
                 </div>
 
                 <div class="card-footer">
-                    <div class="p-2"><a class="btn btn-sm btn-outline-dark" href="{{ route('users.create') }}">Cadastrar usuário</a></div>
+                    <div class="d-flex justify-content-start">
+                        <div class="p-1"><a class="btn btn-sm btn-dark" href="{{ route('users.index') }}">Ver todos</a></div>
+                        <div class="p-1"><a class="btn btn-sm btn-outline-dark" href="{{ route('users.create') }}">Cadastrar usuário</a></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -127,7 +129,13 @@
                 </div>
 
                 <div class="card-footer">
-                    <div class="p-2"><a class="btn btn-sm btn-outline-dark" href="{{ route('categories.create') }}">Criar categoria</a></div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <div class="p-1"><a class="btn btn-sm btn-outline-dark" href="{{ route('categories.create') }}">Criar categoria</a></div>
+                        <div class="">
+                            {{ $categories->links('pagination::bootstrap-4') }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -138,7 +146,7 @@
     <div class="row justify-content-center mt-4">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Gerenciar todos os produtos cadastrados</div>
+                <div class="card-header">Últimos produtos cadastrados</div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
                         @foreach($allProducts as $p)
@@ -158,7 +166,12 @@
                         @endforeach
                     </ul>
                 </div>
-                <div class="card-footer"></div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-start">
+                        <div class="p-1"><a class="btn btn-sm btn-dark" href="{{ route('products.index') }}">Ver todos</a></div>
+                        <div class="p-1"><a class="btn btn-sm btn-outline-dark" href="{{ route('products.create') }}">Cadastrar produto</a></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
