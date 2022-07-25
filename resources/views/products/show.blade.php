@@ -17,9 +17,8 @@
 
                         <div class="col-md-6">
                             <div class="card text-bg-light">
-                                <img src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" class="card-img" alt="...">
+                                <img src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" class="card-img" alt="..." id="card-img" data-bs-toggle="modal" data-bs-target="#exampleModal">
                             </div>
-                            {{-- <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $product->image }}" readonly disabled autocomplete="image" autofocus> --}}
 
                             @error('image')
                                 <span class="invalid-feedback" role="alert">
@@ -131,9 +130,27 @@
 
             </div>
         </div>
-    </div>
+    </div> 
+</div>
 
-    
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">{{ $product->name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <img 
+                    src="{{ "http://127.0.0.1:8000/storage/".$product->image }}"
+                    width="100%"
+                    alt="{{ $product->name }}"
+                />
+            </div>
+        </div>
+    </div>
 </div>
 
 @endsection
