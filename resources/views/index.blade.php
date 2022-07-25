@@ -31,22 +31,27 @@
     @foreach($categories as $category)
       <a href="{{ route('categories.showproducts', $category->id) }}" class="categoria-link">
         <div class="categoria">
-          <img
-            class="rounded-circle mb-2" 
-            alt="Generic placeholder image" 
-            width="85" 
-            height="85"
-            @if($category->image) 
-              src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
-            @else 
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" 
-            @endif
-          />
+          <div class="row text-center mb-3">
+            <div class="d-flex">
+                <div class="box-img-categories">
+                    <img 
+                        class="img-categories"
+                        alt="{{ $category->name }}"
+                        @if($category->image) 
+                          src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
+                        @else 
+                          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" 
+                        @endif
+                        data-holder-rendered="true"
+                    />
+                </div>
+            </div>
+          </div>
           <p class="text-center">{{$category->name}} ({{ count($category->products) }})</p>
         </div>
+
       </a>
     @endforeach
-
   </div>
   
   {{-- TODOS OS PRODUTOS --}}

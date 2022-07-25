@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $user = Auth::user();
         $products = Product::where('user_id', $user->id)->get();
         $categories = Category::paginate(5)->withPath('/categorias');
-        $allProducts = Product::paginate(5);
+        $allProducts = Product::paginate(9);
 
         $totalViews = 0;
 
