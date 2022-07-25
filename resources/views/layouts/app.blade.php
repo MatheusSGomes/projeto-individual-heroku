@@ -32,14 +32,11 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav me-auto">
 
                     </ul>
 
-                    <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
                                 <li class="nav-item">
@@ -78,18 +75,15 @@
             </div>
         </nav>
 
-
-
         <main class="py-4">
             @yield('content')
         </main>
+
+        <footer class="blog-footer container border-top mt-auto">
+            <p>Desenvolvido por <a href="https://matheussgomes.github.io/portfolio/">Matheus Gomes</a><p>
+        </footer>
     </div>
 
-        
-    <footer class="blog-footer mt-auto">
-        <p>Desenvolvido por <a href="https://matheussgomes.github.io/portfolio/">Matheus Gomes</a><p>
-    </footer>
-    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

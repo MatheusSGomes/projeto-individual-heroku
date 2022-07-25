@@ -65,12 +65,19 @@ p {
 
 /* FOOTER */
 .blog-footer {
-  padding: 2.5rem 0;
+  padding: 2rem 0;
   color: #999;
   text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
+}
+
+.blog-footer a {
+  color: #999;
+  text-decoration: none;
+}
+
+.blog-footer a:hover {
+  color: #555;
 }
