@@ -19,7 +19,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::with('user')->get();
+        $products = Product::with(['user', 'category'])->get();
         return view('products.index', compact('products'));
     }
 
