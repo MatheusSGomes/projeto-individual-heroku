@@ -79,11 +79,14 @@
             @yield('content')
         </main>
 
-        <footer class="blog-footer container border-top mt-auto">
-            <p>Desenvolvido por <a href="https://matheussgomes.github.io/portfolio/">Matheus Gomes</a><p>
-        </footer>
     </div>
 
+    <div class="container mt-auto">
+        <footer class="blog-footer container border-top">
+            <p>Desenvolvido por <a href="https://matheussgomes.github.io/portfolio/" target="_blank">Matheus Gomes</a><p>
+        </footer>
+    </div>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 </html>

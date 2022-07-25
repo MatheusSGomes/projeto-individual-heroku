@@ -3,29 +3,6 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
-<style>
-    .border-left-primary {
-        border-left: .25rem solid #4e73df !important;
-    }
-
-    .border-left-success {
-        border-left: .25rem solid #1cc88a !important;
-    }
-
-    .border-left-info {
-        border-left: .25rem solid #36b9cc !important;
-    }
-
-    .border-left-warning {
-        border-left: .25rem solid #f6c23e !important;
-    }
-
-    .text-gray-300 {
-        color: #dddfeb !important;
-    }
-
-</style>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -70,7 +47,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Produtos</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ count($allProducts) }}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['products'] }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-cart-shopping fa-2x text-gray-300"></i>
@@ -86,7 +63,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total categorias</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ count($categories) }}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['categories'] }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-tags fa-2x text-gray-300"></i>
@@ -102,7 +79,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total usuários</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ count($users) }}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['users'] }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-users fa-2x text-gray-300"></i>
@@ -118,7 +95,7 @@
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Total visitas</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ count($allProducts) }}</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['views'] }}</div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fa-solid fa-eye fa-2x text-gray-300"></i>
@@ -287,6 +264,5 @@
         </div>
     </div>
     @endif
-
 </div>
 @endsection

@@ -24,6 +24,19 @@ class DashboardController extends Controller
         $products = Product::where('user_id', $user->id)->get();
         $categories = Category::paginate(5)->withPath('/categorias');
         $allProducts = Product::paginate(5);
-        return view('dashboard', compact('users', 'products', 'categories', 'allProducts'));
+
+        $totalViews = 0;
+
+        foreach(Product::all() as $product) {
+            $totalViews += $product->views;
+        }
+
+        $dashboardData = [
+            'products' => Product::count(),
+            'categories' => Category::count(),
+            'users' => User::count(),
+            'views' => $totalViews
+        ];
+        return view('dashboard', compact('users', 'products', 'categories', 'allProducts', 'dashboardData'));
     }
 }
