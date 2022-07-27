@@ -269,15 +269,7 @@
                             <div class="d-flex list-group-item">
                                 <div class="me-auto p-2">{{ $c->name }}</div>
                                 <div class="p-2"><a class="btn btn-sm btn-primary" href="{{ route('categories.edit', $c->id) }}">Editar</a></div>
-                                <div class="p-2">
-                                    <a href="#">
-                                        <form method="POST" action="{{ route('categories.destroy', $c->id) }}">
-                                            @csrf
-                                            @method("DELETE")
-                                            <input class="btn btn-sm btn-danger" type="submit" value="Apagar">
-                                        </form>
-                                    </a>
-                                </div>
+                                <div class="p-2"><a class="btn btn-sm btn-danger" href="{{ route('categories.confirmDelete', $c->id) }}">Apagar</a></div>
                             </div>
                         @endforeach
                       </ul>                    

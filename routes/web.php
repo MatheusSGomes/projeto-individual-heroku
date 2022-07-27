@@ -19,6 +19,7 @@ Route::get('categoria/{id}', [CategoryController::class, 'show'])->name('categor
 Route::get('categoria/{id}/produtos', [CategoryController::class, 'showproducts'])->name('categories.showproducts');
 Route::get('/categoria/{id}/editar', [CategoryController::class, 'edit'])->name('categories.edit');
 Route::put('/categoria/{id}', [CategoryController::class, 'update'])->name('categories.update');
+Route::get('/categoria/{id}/apagar', [CategoryController::class, 'confirmDelete'])->name('categories.confirmDelete');
 Route::delete('/categoria/{id}', [CategoryController::class, 'destroy'])->name('categories.destroy');
 
 

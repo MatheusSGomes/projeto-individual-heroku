@@ -98,6 +98,12 @@ class CategoryController extends Controller
         return redirect()->route('categories.index');
     }
 
+    public function confirmDelete($id)
+    {
+        $category = Category::with('products')->where('id', $id)->first();
+        return view('categories.confirmDelete', compact('category'));
+    }
+
     /**
      * Remove the specified resource from storage.
      *
