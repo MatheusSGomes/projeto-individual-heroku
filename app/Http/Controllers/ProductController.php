@@ -50,7 +50,7 @@ class ProductController extends Controller
         $product->user_id = Auth::id();
         $product->category_id = $request->input('category_id');
         $product->save();
-
+        session()->flash('product-store', 'Produto cadastrado com sucesso!');
         if(Auth::user()) 
             return redirect()->route('dashboard');
         return redirect()->route('products.index');
@@ -107,7 +107,7 @@ class ProductController extends Controller
 
         $product->category_id = $request->input('category_id');
         $product->save();
-        
+        session()->flash('product-edit', 'Produto editado com sucesso!');
         if(Auth::user()) 
             return redirect()->route('dashboard');
         return redirect()->route('products.index');
@@ -123,6 +123,9 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
+        if($product->image)
+            unlink(public_path('storage/'.$product->image));
+        session()->flash('product-destroy', 'Produto apagado com sucesso!');
         if(Auth::user()) 
             return redirect()->route('dashboard');
 

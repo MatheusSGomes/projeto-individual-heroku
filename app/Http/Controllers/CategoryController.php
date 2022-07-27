@@ -42,6 +42,7 @@ class CategoryController extends Controller
         if($request->image)
             $category->image = $request->file('image')->store('categories', 'public');
         $category->save();
+        session()->flash('category-created', 'Categoria cadastrada com sucesso!');
         if(Auth::user())
             return redirect()->route('dashboard');
         return redirect()->route('categories.index'); 
@@ -91,6 +92,7 @@ class CategoryController extends Controller
         if($request->image)
             $category->image = $request->file('image')->store('categories', 'public');
         $category->save();
+        session()->flash('category-updated', 'Categoria atualizada com sucesso!');
         if(Auth::user())
             return redirect()->route('dashboard');
         return redirect()->route('categories.index');
@@ -108,6 +110,7 @@ class CategoryController extends Controller
         $category->delete();
         if($category->image)
             unlink(public_path('storage/'.$category->image));
+        session()->flash('category-destroy', 'Categoria apagada com sucesso!');
         if(Auth::user())
             return redirect()->route('dashboard');
         return redirect()->route('categories.index');

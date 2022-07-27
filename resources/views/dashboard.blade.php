@@ -3,7 +3,74 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 
+<style>
+    a {
+        text-decoration: none;
+    }
+</style>
+
 <div class="container">
+    {{-- FLASH MESSAGES --}}
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            @if(session()->has('category-created'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('category-created') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+            
+            @if(session()->has('category-updated'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('category-updated') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session()->has('category-destroy'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('category-destroy') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session()->has('product-edit'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('product-edit') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session()->has('product-destroy'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('product-destroy') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session()->has('user-created'))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('user-created') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session()->has('user-update'))
+                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('user-update') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+
+            @if(session()->has('user-destroy'))
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <p>{{ session()->get('user-destroy') }}</p>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endif
+        </div>
+    </div>
+
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -46,7 +113,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Produtos</div>
+                                            <a href="{{ route('products.index') }}" class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Produtos</a>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['products'] }}</div>
                                         </div>
                                         <div class="col-auto">
@@ -62,7 +129,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total categorias</div>
+                                            <a href="{{ route('categories.index') }}" class="text-xs font-weight-bold text-success text-uppercase mb-1">Total categorias</a>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['categories'] }}</div>
                                         </div>
                                         <div class="col-auto">
@@ -78,7 +145,7 @@
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Total usuários</div>
+                                            <a href="{{ route('users.index') }}" class="text-xs font-weight-bold text-info text-uppercase mb-1">Total usuários</a>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $dashboardData['users'] }}</div>
                                         </div>
                                         <div class="col-auto">

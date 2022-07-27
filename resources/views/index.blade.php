@@ -1,6 +1,12 @@
 @extends('layouts.app')
 @section('content')
 <div class="container">
+  @if(session()->has('user-created'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+        <p>{{ session()->get('user-created') }}</p>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  @endif
 
   @auth
     <p>Conteúdo para quem está logado</p>

@@ -45,9 +45,10 @@ class UserController extends Controller
             $user->photo = $request->file('photo')->store('profile', 'public');
         $user->password = $request->input('password');
         $user->save();
+        $request->session()->flash('user-created', 'Cadastrado realizado com sucesso! Faça login para anunciar produtos.');
         if(Auth::user())
             return redirect()->route('dashboard');
-        return redirect()->route('users.index');
+        return redirect()->route('index');
     }
 
     /**
@@ -93,6 +94,7 @@ class UserController extends Controller
         if($request->password)
             $user->password = bcrypt($request->input('password'));
         $user->save();
+        session()->flash('user-update', 'Usuário atualizado com sucesso!');
         if(Auth::user())
             return redirect()->route('dashboard');
         return redirect()->route('users.index');
@@ -108,6 +110,9 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
+        if($user->photo)
+            unlink(public_path('storage/'.$user->photo));
+        session()->flash('user-destroy', 'Usuário apagado com sucesso');
         return redirect()->route('users.index');
     }
 }
