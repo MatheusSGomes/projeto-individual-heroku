@@ -7,7 +7,9 @@
       <div class="card-body">
         <h4 class="text-center">Deseja remover a categoria <strong>{{ $category->name }}</strong>?</h4>
         <p class="text-center">Essa categoria tem <strong>{{ count($category->products) }}</strong> produto(s) cadastrados.</p>
-        <p class="text-center alert alert-danger"><strong>AVISO:</strong> Todos os produtos da categoria serão apagados.</p>
+        @if(count($category->products) > 0)
+          <p class="text-center alert alert-danger"><strong>AVISO:</strong> Todos os produtos da categoria serão apagados.</p>
+        @endif
       </div>
       <div class="card-footer">
         <div class="d-flex flex-row justify-content-end">

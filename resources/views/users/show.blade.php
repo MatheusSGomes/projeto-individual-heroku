@@ -68,11 +68,15 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">Editar</button>
+                        @auth
+                            @if(Auth::user()->is_admin == 1)
+                            <div class="row mb-0">
+                                <div class="col-md-6 offset-md-4">
+                                    <button type="submit" class="btn btn-primary">Editar</button>
+                                </div>
                             </div>
-                        </div>
+                            @endif
+                        @endauth
                     </form>
                 </div>
             </div>
