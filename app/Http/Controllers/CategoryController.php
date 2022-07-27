@@ -107,7 +107,8 @@ class CategoryController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
-        $category->delete();
+        // $category->delete();
+        $category->deleteOrFail($id);
         if($category->image)
             unlink(public_path('storage/'.$category->image));
         session()->flash('category-destroy', 'Categoria apagada com sucesso!');

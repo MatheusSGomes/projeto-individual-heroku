@@ -72,7 +72,7 @@
                           <label for="category_id" class="col-md-4 col-form-label text-md-end">Categoria do produto</label>
 
                           <div class="col-md-6">
-                              <select class="form-select" size="3" aria-label="size 3 select example" name="category_id">
+                              <select class="form-select" size="3" aria-label="size 3 select example" name="category_id" required>
                                 @foreach($categories as $category)
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
@@ -85,21 +85,7 @@
                               @enderror
                           </div>
                         </div>
-
-                        {{-- <div class="row mb-3">
-                            <label for="category_id" class="col-md-4 col-form-label text-md-end">Categoria do produto</label>
-  
-                            <div class="col-md-6">
-                                <input id="category_id" type="text" class="form-control @error('category_id') is-invalid @enderror" name="category_id" value="{{ old('category_id') }}" required autocomplete="category_id" autofocus>
-  
-                                @error('category_id')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                          </div> --}}
-
+                        
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">Cadastrar</button>
