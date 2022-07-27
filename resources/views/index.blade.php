@@ -8,14 +8,6 @@
     </div>
   @endif
 
-  @auth
-    <p>Conteúdo para quem está logado</p>
-  @endauth
-
-  @guest
-    <p>Conteúdo apenas para visitantes</p>    
-  @endguest
-
   {{-- CATEGORIAS --}}
   <h1 class="display-4 font-italic h1-classificados text-center mb-5 mt-5">Classificados</h1>
 

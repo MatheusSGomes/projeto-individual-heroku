@@ -1,8 +1,6 @@
 @extends('layouts.app')
 @section('content')
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
-
 <style>
     a {
         text-decoration: none;
@@ -102,6 +100,7 @@
         </div>
     </div>
 
+    {{-- DASHBOARD --}}
     @if(Auth::user()->is_admin == 1)
     <div class="row justify-content-center">
         <div class="col-md-8">
