@@ -278,24 +278,9 @@
         </div>
     </div>
     @endauth
-  
-    <script>
-        const sidebar = document.querySelector('.sidebar');
-    
-        function showSidebar(){
-            sidebar.style.display = 'inline-block';
-        }
-        
-        function hideSidebar() {
-            sidebar.style.display = 'none';
-        }
-    
-        sidebar.addEventListener('click', function (event) {
-            if(sidebar == event.target)
-                hideSidebar();
-        });
-    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/previewImage.js') }}"></script>
+    <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 </html>
