@@ -48,7 +48,7 @@
 
                 <div class="card-footer">
                     <div class="d-flex justify-content-start">
-                        <div class="p-1"><a class="btn btn-sm btn-outline-dark" href="{{ route('users.create') }}">Cadastrar usuário</a></div>
+                        <div class="p-1"><a class="btn btn-sm btn-outline-dark" href="{{ route('products.create') }}">Cadastrar produto</a></div>
                     </div>
                 </div>
             </div>
