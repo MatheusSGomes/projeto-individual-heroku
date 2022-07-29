@@ -30,22 +30,24 @@
       <a href="{{ route('categories.showproducts', $category->id) }}" class="categoria-link">
         <div class="categoria">
           <div class="row text-center mb-3">
-            <div class="d-flex">
-                <div class="box-img-categories">
-                    <img 
-                        class="img-categories"
-                        alt="{{ $category->name }}"
-                        @if($category->image) 
-                          src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
-                        @else 
-                          src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" 
-                        @endif
-                        data-holder-rendered="true"
-                    />
-                </div>
+
+            <div class="d-flex justify-content-center">
+              <div class="box-img-categories">
+                <img 
+                    class="img-categories"
+                    alt="{{ $category->name }}"
+                    @if($category->image) 
+                      src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
+                    @else 
+                      src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" 
+                    @endif
+                    data-holder-rendered="true"
+                />
+              </div>
             </div>
+            
+            <p class="text-center">{{$category->name}} ({{ count($category->products) }})</p>
           </div>
-          <p class="text-center">{{$category->name}} ({{ count($category->products) }})</p>
         </div>
 
       </a>
