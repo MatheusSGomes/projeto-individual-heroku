@@ -8,15 +8,17 @@ use Tests\TestCase;
 
 class UserControllerTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_example()
-    {
-        $response = $this->get('/');
+    /** @test */
+    // public function check_if_can_register_new_user()
+    // {
+    //     $response = $this->post('/usuario', [
+    //         'name' => 'Janio',
+    //         'email' => 'janio@email.com',
+    //         'password' => '12345678',
+    //         'phone' => '78 9854-1657',
+    //         'photo' => null
+    //     ]);
 
-        $response->assertStatus(200);
-    }
+    //     $response->assertSuccessful();
+    // }
 }
