@@ -3,8 +3,7 @@
 @auth
   @if(Auth::user()->is_admin == 1)
     <div class="d-flex justify-content-center mt-4 ">
-
-        <div class="w-50">
+      <div class="col-md-7 col-lg-7">
             <div class="card">
                 <div class="card-header text-center">Todos usuários cadastrados</div>
 
@@ -53,8 +52,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
+      </div>
     </div>
   @endif
 @endauth

@@ -3,7 +3,7 @@
 @auth
   @if(Auth::user()->is_admin == 1)
     <div class="row justify-content-center mt-4">
-        <div class="col-md-8 col-lg-10">
+        <div class="col-md-10 col-lg-10">
             <div class="card">
                 <div class="card-header text-center">Todos usuários cadastrados</div>
 
