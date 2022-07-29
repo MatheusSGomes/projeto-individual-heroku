@@ -89,8 +89,12 @@ class CategoryController extends Controller
     {
         $category = Category::find($id);
         $category->name = $request->input('name');
-        if($request->image)
+        if($request->image) {
+            if($category->image) {
+                unlink(public_path('storage/'.$category->image));
+            }
             $category->image = $request->file('image')->store('categories', 'public');
+        }
         $category->save();
         session()->flash('category-updated', 'Categoria atualizada com sucesso!');
         if(Auth::user())

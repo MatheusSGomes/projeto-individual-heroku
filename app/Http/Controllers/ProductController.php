@@ -102,8 +102,13 @@ class ProductController extends Controller
         $product->description = $request->input('description');
         $product->price = handleMoney($request->input('price'));
 
-        if($request->image)
+        if($request->image) {
+            if($product->image) {
+                unlink(public_path('storage/'.$product->image));
+            }
             $product->image = $request->file('image')->store('products', 'public');
+        }
+
 
         $product->category_id = $request->input('category_id');
         $product->save();

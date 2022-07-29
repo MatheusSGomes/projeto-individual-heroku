@@ -88,8 +88,12 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
-        if($request->photo)
+        if($request->photo) {
+            if($user->photo) {
+                unlink(public_path('storage/'.$user->photo));
+            }
             $user->photo = $request->file('photo')->store('profile', 'public');
+        }
         $user->is_admin = $request->input('is_admin');
         if($request->password)
             $user->password = bcrypt($request->input('password'));
