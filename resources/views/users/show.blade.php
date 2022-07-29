@@ -11,8 +11,9 @@
                     <form method="GET" action="{{ route('users.edit', $user->id) }}">
                         @csrf
 
+                        @if($user->photo)
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do produto</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do usuário</label>
     
                             <div class="col-md-6">
                                 <div class="card text-bg-light">
@@ -25,6 +26,7 @@
                                 @enderror
                             </div>
                         </div>
+                        @endif
 
                         <div class="row mb-3">
                             <label for="name" class="col-md-4 col-form-label text-md-end">Nome</label>

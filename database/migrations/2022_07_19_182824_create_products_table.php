@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('description');
             $table->double('price');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('views')->default(0);
 
             $table->unsignedBigInteger('user_id');

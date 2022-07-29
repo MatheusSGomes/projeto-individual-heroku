@@ -104,7 +104,7 @@
                                     name="photo" value="{{ old('photo') }}" 
                                     autocomplete="photo" 
                                     autofocus 
-                                    onchange="previewImage()"
+                                    onchange="previewPhoto()"
                                 />
                                 
                                 @error('photo')

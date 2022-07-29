@@ -9,12 +9,25 @@
                 <div class="card-header text-center">Detalhes do  {{ $product->name }}</div>
 
                 <div class="card-body">
+
+                    @if($product->image)
                     <div class="row mb-3">
                         <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do produto</label>
 
                         <div class="col-md-6">
                             <div class="card text-bg-light">
-                                <img src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" class="card-img" alt="..." id="card-img" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <img 
+                                    @if($product->image)
+                                        src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" 
+                                    @else
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                    @endif
+                                    class="card-img" 
+                                    alt="..." 
+                                    id="card-img" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#exampleModal"
+                                />
                             </div>
 
                             @error('image')
@@ -24,6 +37,7 @@
                             @enderror
                         </div>
                     </div>    
+                    @endif
 
                     <div class="row mb-3">
                         <label for="name" class="col-md-4 col-form-label text-md-end">Nome do produto</label>

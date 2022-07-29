@@ -17,7 +17,15 @@
     
                             <div class="col-md-6">
                                 <div class="card text-bg-light">
-                                    <img src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" class="card-img" alt="...">
+                                    <img 
+                                        @if($product->image)
+                                            src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" 
+                                        @else
+                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                        @endif
+                                        class="card-img img-upload" 
+                                        alt="{{ $product->name }}"
+                                    />
                                 </div>
     
                                 @error('image')
@@ -74,7 +82,17 @@
                           <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do produto</label>
 
                           <div class="col-md-6">
-                              <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ $product->image }}" autocomplete="image" autofocus>
+                            <input 
+                                {{-- id="image"  --}}
+                                id="img-upload" 
+                                type="file" 
+                                class="form-control @error('image') is-invalid @enderror" 
+                                name="image" 
+                                value="{{ $product->image }}" 
+                                autocomplete="image" 
+                                autofocus
+                                onchange="previewImage()"
+                            />
 
                               @error('image')
                                   <span class="invalid-feedback" role="alert">

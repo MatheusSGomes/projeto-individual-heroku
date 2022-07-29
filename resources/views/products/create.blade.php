@@ -58,7 +58,25 @@
                           <label for="image" class="col-md-4 col-form-label text-md-end">Imagem do produto</label>
 
                           <div class="col-md-6">
-                              <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" value="{{ old('image') }}" required autocomplete="image" autofocus>
+                            <input 
+                                {{-- id="image" --}}
+                                id="img-upload"
+                                type="file" 
+                                class="mb-2 form-control @error('image') is-invalid @enderror" 
+                                name="image" 
+                                value="{{ old('image') }}" 
+                                required 
+                                autocomplete="image" 
+                                autofocus 
+                                onchange="previewImage()"
+                            />
+
+                            <div class="card text-bg-light">
+                                <img 
+                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
+                                    class="card-img img-upload"
+                                />
+                            </div>
 
                               @error('image')
                                   <span class="invalid-feedback" role="alert">

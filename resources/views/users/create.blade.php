@@ -15,7 +15,13 @@
                             <div class="col mb-3">
                                 @auth
                                     @if(Auth::user()->is_admin == 1)
-                                        <input class="form-check-input" type="checkbox" value="1" name="is_admin" id="flexCheckDefault">
+                                        <input 
+                                            class="form-check-input" 
+                                            type="checkbox" 
+                                            value="1" 
+                                            name="is_admin" 
+                                            id="flexCheckDefault"
+                                        />
                                         <label class="form-check-label" for="flexCheckDefault">Admin</label>
                                     @endif
                                 @endauth
