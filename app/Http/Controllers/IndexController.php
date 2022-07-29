@@ -22,7 +22,7 @@ class IndexController extends Controller
     public function index()
     {
         $categories = Category::with('products')->get();
-        $products = Product::paginate(3);
+        $products = Product::paginate(9);
         return view('index', compact('categories', 'products'));
     }
 

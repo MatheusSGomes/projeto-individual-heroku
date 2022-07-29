@@ -115,3 +115,21 @@ p {
 .text-gray-300 {
   color: #dddfeb !important;
 }
+
+/* SIDEBAR */
+.img-user-sidebar-box {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.img-user-sidebar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  background-color: #999 !important;
+}
