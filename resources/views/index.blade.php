@@ -38,7 +38,7 @@
                     class="img-categories"
                     alt="{{ $category->name }}"
                     @if($category->image) 
-                      src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
+                      src="{{ $category->image }}"
                     @else 
                       src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" 
                     @endif
@@ -65,7 +65,7 @@
       <div class="col">
         <div class="card">
           <img 
-            src="{{ "http://127.0.0.1:8000/storage/".$product->image }}"
+            src="{{ $product->image }}"
             class="card-img-top" 
             alt="{{ $product->name }}"
           />

@@ -229,7 +229,7 @@
                         <img 
                             class="img-user-sidebar" 
                             @if(Auth::user()->photo)
-                                src="{{ "http://127.0.0.1:8000/storage/" . Auth::user()->photo }}"
+                                src="{{ Auth::user()->photo }}"
                             @else
                                 src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                             @endif

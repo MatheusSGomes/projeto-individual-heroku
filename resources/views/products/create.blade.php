@@ -61,7 +61,7 @@
                             <input 
                                 {{-- id="image" --}}
                                 id="img-upload"
-                                type="file" 
+                                type="text" 
                                 class="mb-2 form-control @error('image') is-invalid @enderror" 
                                 name="image" 
                                 value="{{ old('image') }}" 

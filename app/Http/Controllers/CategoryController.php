@@ -39,8 +39,10 @@ class CategoryController extends Controller
     {
         $category = new Category;
         $category->name = $request->input('name');
-        if($request->image)
-            $category->image = $request->file('image')->store('categories', 'public');
+        if($request->image) {
+            $category->image = $request->input('image');
+            // $category->image = $request->file('image')->store('categories', 'public');
+        }
         $category->save();
         session()->flash('category-created', 'Categoria cadastrada com sucesso!');
         if(Auth::user())
@@ -90,10 +92,8 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->name = $request->input('name');
         if($request->image) {
-            if($category->image) {
-                unlink(public_path('storage/'.$category->image));
-            }
-            $category->image = $request->file('image')->store('categories', 'public');
+            $category->image = $request->input('image');
+            // $category->image = $request->file('image')->store('categories', 'public');
         }
         $category->save();
         session()->flash('category-updated', 'Categoria atualizada com sucesso!');
@@ -119,8 +119,6 @@ class CategoryController extends Controller
         $category = Category::find($id);
         // $category->delete();
         $category->deleteOrFail($id);
-        if($category->image)
-            unlink(public_path('storage/'.$category->image));
         session()->flash('category-destroy', 'Categoria apagada com sucesso!');
         if(Auth::user())
             return redirect()->route('dashboard');

@@ -24,8 +24,10 @@ class UserController extends Controller
         $user->name = $request->input('name');
         $user->phone = $request->input('phone');
         $user->email = $request->input('email');
-        if($request->photo)
-            $user->photo = $request->file('photo')->store('profile', 'public');
+        if($request->photo) {
+            // $user->photo = $request->file('photo')->store('profile', 'public');
+            $user->photo = $request->input('photo');
+        }
         $user->password = $request->input('password');
         $user->save();
         $request->session()->flash('user-created', 'Cadastrado realizado com sucesso! Faça login para anunciar produtos.');
@@ -50,10 +52,8 @@ class UserController extends Controller
         $user->email = $request->input('email');
         $user->phone = $request->input('phone');
         if($request->photo) {
-            if($user->photo) {
-                unlink(public_path('storage/'.$user->photo));
-            }
-            $user->photo = $request->file('photo')->store('profile', 'public');
+            // $user->photo = $request->file('photo')->store('profile', 'public');
+            $user->photo = $request->input('photo');
         }
         $user->is_admin = $request->input('is_admin');
         if($request->password)
@@ -68,8 +68,6 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $user->delete();
-        if($user->photo)
-            unlink(public_path('storage/'.$user->photo));
         session()->flash('user-destroy', 'Usuário apagado com sucesso');
         return redirect()->route('users.index');
     }

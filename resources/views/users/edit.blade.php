@@ -16,7 +16,7 @@
                                     class="img-profile"
     
                                     @if($user->photo)
-                                        src="{{ "http://127.0.0.1:8000/storage/".$user->photo }}" 
+                                        src="{{ $user->photo }}" 
                                     @else
                                         src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                                     @endif
@@ -99,7 +99,7 @@
                             <div class="col-md-6">
                                 <input 
                                     id="photo" 
-                                    type="file" 
+                                    type="text" 
                                     class="form-control @error('photo') is-invalid @enderror" 
                                     name="photo" value="{{ old('photo') }}" 
                                     autocomplete="photo" 

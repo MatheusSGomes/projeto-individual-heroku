@@ -74,7 +74,8 @@
                             <label for="photo" class="col-md-4 col-form-label text-md-end">Foto de perfil</label>
   
                             <div class="col-md-6">
-                                <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" autocomplete="photo" autofocus>
+                                {{-- <input id="photo" type="file" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" autocomplete="photo" autofocus> --}}
+                                <input id="photo" type="text" class="form-control @error('photo') is-invalid @enderror" name="photo" value="{{ old('photo') }}" autocomplete="photo" autofocus>
   
                                 @error('photo')
                                     <span class="invalid-feedback" role="alert">

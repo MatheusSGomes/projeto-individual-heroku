@@ -26,10 +26,11 @@
                         </div>
 
                         <div class="row mb-3">
-                            <label for="image" class="col-md-4 col-form-label text-md-end">Imagem da categoria</label>
+                            <label for="image" class="col-md-4 col-form-label text-md-end">URL da imagem da categoria</label>
   
                             <div class="col-md-6">
-                                <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required autocomplete="image" autofocus>
+                                {{-- <input id="image" type="file" class="form-control @error('image') is-invalid @enderror" name="image" required autocomplete="image" autofocus> --}}
+                                <input id="image" type="text" class="form-control @error('image') is-invalid @enderror" name="image" required autocomplete="image" autofocus>
   
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">

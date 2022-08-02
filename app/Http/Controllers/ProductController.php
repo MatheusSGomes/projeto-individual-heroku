@@ -46,7 +46,8 @@ class ProductController extends Controller
         $product->name = $request->input('name');
         $product->description = $request->input('description');
         $product->price = handleMoney($request->input('price'));
-        $product->image = $request->file('image')->store('products', 'public');
+        $product->image = $request->input('image');
+        // $product->image = $request->file('image')->store('products', 'public');
         $product->user_id = Auth::id();
         $product->category_id = $request->input('category_id');
         $product->save();
@@ -103,10 +104,8 @@ class ProductController extends Controller
         $product->price = handleMoney($request->input('price'));
 
         if($request->image) {
-            if($product->image) {
-                unlink(public_path('storage/'.$product->image));
-            }
-            $product->image = $request->file('image')->store('products', 'public');
+            $product->image = $request->input('image');
+            // $product->image = $request->file('image')->store('products', 'public');
         }
 
 
@@ -128,8 +127,6 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         $product->delete();
-        if($product->image)
-            unlink(public_path('storage/'.$product->image));
         session()->flash('product-destroy', 'Produto apagado com sucesso!');
         if(Auth::user()) 
             return redirect()->route('dashboard');

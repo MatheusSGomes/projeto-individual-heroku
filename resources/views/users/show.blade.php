@@ -17,7 +17,7 @@
     
                             <div class="col-md-6">
                                 <div class="card text-bg-light">
-                                    <img src="{{ "http://127.0.0.1:8000/storage/".$user->photo }}" class="card-img" alt="...">
+                                    <img src="{{ $user->photo }}" class="card-img" alt="...">
                                 </div>
                                 @error('image')
                                     <span class="invalid-feedback" role="alert">

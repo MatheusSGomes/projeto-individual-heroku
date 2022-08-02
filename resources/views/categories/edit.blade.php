@@ -19,7 +19,7 @@
                                 <div class="card text-bg-light">
                                     <img 
                                         @if($category->image)
-                                            src="{{ "http://127.0.0.1:8000/storage/".$category->image }}"
+                                            src="{{ $category->image }}"
                                         @else
                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                                         @endif
@@ -55,12 +55,13 @@
                                 <input 
                                     {{-- id="image"  --}}
                                     id="img-upload"
-                                    type="file" 
+                                    type="text" 
                                     class="form-control @error('image') is-invalid @enderror"
                                     name="image"
                                     autocomplete="image"
                                     autofocus 
                                     onchange="previewImage()"
+                                    value="{{ $category->image }}"
                                 />
   
                                 @error('image')

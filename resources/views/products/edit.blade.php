@@ -19,7 +19,7 @@
                                 <div class="card text-bg-light">
                                     <img 
                                         @if($product->image)
-                                            src="{{ "http://127.0.0.1:8000/storage/".$product->image }}" 
+                                            src="{{ $product->image }}" 
                                         @else
                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=="
                                         @endif
@@ -85,7 +85,7 @@
                             <input 
                                 {{-- id="image"  --}}
                                 id="img-upload" 
-                                type="file" 
+                                type="text" 
                                 class="form-control @error('image') is-invalid @enderror" 
                                 name="image" 
                                 value="{{ $product->image }}" 

@@ -10,7 +10,7 @@
       <div class="col">
         <div class="card">
           <img 
-            src="{{ "http://127.0.0.1:8000/storage/".$product->image }}"
+            src="{{ $product->image }}"
             class="card-img-top" 
             alt="{{ $product->name }}"
           />
