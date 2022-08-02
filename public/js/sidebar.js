@@ -8,7 +8,9 @@ function hideSidebar() {
   sidebar.style.display = 'none';
 }
 
-sidebar.addEventListener('click', function (event) {
-  if(sidebar == event.target)
-      hideSidebar();
-});
+if(sidebar) {
+  sidebar.addEventListener('click', function (event) {
+    if(sidebar == event.target)
+        hideSidebar();
+  });
+}
