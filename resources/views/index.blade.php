@@ -8,7 +8,7 @@
     </div>
   @endif
 
-  {{-- CATEGORIAS --}}
+  {{-- SEARCH --}}
   <h1 class="display-4 font-italic h1-classificados text-center mb-5 mt-5">Classificados</h1>
 
   <div class="d-flex justify-content-around mb-4">
@@ -22,6 +22,7 @@
     </form>
   </div>
 
+  {{-- CATEGORIAS --}}
   <h2>Categorias</h2>
   <hr class="mb-5">  
 
@@ -46,7 +47,7 @@
               </div>
             </div>
             
-            <p class="text-center">{{$category->name}} ({{ count($category->products) }})</p>
+            <p class="text-center text-wrap">{{$category->name}} ({{ count($category->products) }})</p>
           </div>
         </div>
 
@@ -72,7 +73,7 @@
           <div class="card-body">
             <div class="d-flex justify-content-between">
               <div class="mr-auto p-2">
-                <p class="card-title h4">R$ {{ $product->price }}</h4>
+                <p class="card-title h4 fw-bold">R$ {{ $product->price }}</h4>
                 <p class="card-text">{{ $product->name }}</p>
               </div>
     
