@@ -1,3 +1,7 @@
+* {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
 .card-product {
   transition: .5s box-shadow ease-in-out;
 }
@@ -28,7 +32,7 @@ h2, h3, h4 {
 }
 
 p {
-  font-family: "Open Sans", sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
 }
 
 /* CATEGORIES */
