@@ -278,9 +278,6 @@
                     <div class="d-flex justify-content-start">
                         <div class="p-1"><a class="btn btn-sm btn-dark" href="{{ route('categories.index') }}">Ver todas</a></div>
                         <div class="p-1"><a class="btn btn-sm btn-outline-dark" href="{{ route('categories.create') }}">Criar categoria</a></div>
-                        <div class="">
-                            {{ $categories->links('pagination::bootstrap-4') }}
-                        </div>
                     </div>
                 </div>
             </div>
