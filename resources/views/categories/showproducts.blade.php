@@ -9,15 +9,12 @@
   @foreach($category->products as $product)
     <div class="col">
       <div class="card">
-        <div style="height: 250px;">
-          <img 
-            src="{{ $product->image }}"
-            class="card-img-top" 
-            alt="{{ $product->name }}"
-            style="height: 100%; width: 100%; object-fit: cover;"
-          />
-        </div>
-        
+        <img 
+          src="{{ $product->image }}"
+          class="card-img-top" 
+          alt="{{ $product->name }}"
+        />
+
         <div class="card-body">
           <div class="d-flex justify-content-between">
             <div class="mr-auto p-2">
