@@ -135,7 +135,7 @@ class UserSeeder extends Seeder
             'is_admin' => '0',
             'password' => bcrypt('12345678')
         ]);
-
+        
         DB::table('users')->insert([
             'name' => 'Michelle Aquino',
             'phone' => '61 6545-3524',
@@ -144,12 +144,11 @@ class UserSeeder extends Seeder
             'is_admin' => '0',
             'password' => bcrypt('12345678')
         ]);
-
+        
         DB::table('users')->insert([
-            'name' => 'Emanuel Quinta',
+            'name' => 'user',
             'phone' => '61 6545-3524',
-            'email' => 'emanuel@email.com',
-            'photo' => 'https://images.unsplash.com/photo-1583692331507-fc0bd348695d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8bWFuJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+            'email' => 'user@email.com',
             'is_admin' => '0',
             'password' => bcrypt('12345678')
         ]);
@@ -160,7 +159,7 @@ class UserSeeder extends Seeder
             'email' => 'andrei@email.com',
             'photo' => 'https://images.unsplash.com/photo-1591084728795-1149f32d9866?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bWFuJTIwZmFjZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
             'is_admin' => '0',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('senha123')
         ]);
 
         DB::table('users')->insert([
@@ -169,7 +168,7 @@ class UserSeeder extends Seeder
             'email' => 'zoe@email.com',
             'photo' => 'https://images.unsplash.com/photo-1603469278809-b2139cf2958d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OTJ8fG11bGhlcnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
             'is_admin' => '0',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('senha123')
         ]);
 
         DB::table('users')->insert([
@@ -214,7 +213,7 @@ class UserSeeder extends Seeder
             'email' => 'math.s.gomes@gmail.com',
             'photo' => '',
             'is_admin' => '1',
-            'password' => bcrypt('12345678')
+            'password' => bcrypt('12345678'),
         ]);
     }
 }
