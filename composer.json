@@ -56,7 +56,9 @@
             "@php artisan key:generate --ansi"
         ],
         "post-install-cmd": [
-            "@php artisan migrate --force"
+            "@php artisan migrate --force",
+            "php artisan optimize",
+            "chmod -R 777 public/"
         ]
     },
     "extra": {
