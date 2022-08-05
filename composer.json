@@ -57,8 +57,7 @@
         ],
         "post-install-cmd": [
             "@php artisan migrate --force",
-            "php artisan optimize",
-            "chmod -R 777 public/"
+            "php artisan optimize"
         ]
     },
     "extra": {
